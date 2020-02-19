@@ -3,7 +3,18 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+  quantity_possible = []
+  for item in recipe:
+    if item in ingredients:
+      quantity_possible.append(ingredients[item] // recipe[item])
+    else:
+      return 0  
+  minimum_quantity = quantity_possible[0]
+  for num in quantity_possible:
+    if num < minimum_quantity:
+      minimum_quantity = num
+  return minimum_quantity
+    
 
 
 if __name__ == '__main__':
